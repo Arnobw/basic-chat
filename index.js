@@ -1,7 +1,9 @@
-var app = require('express')();
+var express = require('express');
+const app = require('express')();
 var http = require('http').createServer(app);
 var io = require('socket.io').listen(http);
 
+app.use(express.static('public'));
 
 
 

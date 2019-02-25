@@ -8,7 +8,6 @@ app.use(express.static('public'));
 
 
 
-
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/public/index.html');
   });
@@ -36,6 +35,9 @@ io.on('connection', function(socket){
   });
 
   
+
+ server.listen(process.env.port || 3000);
+ console.log('hallo ik ben een serveur');
 
 //   io.on('connection', function(socket) {
 //     socket.on('send-nickname', function(nickname) {

@@ -19,6 +19,7 @@
 <script>
   $(function () {
     var socket = io();
+
     $('form').submit(function(e){
       e.preventDefault(); // prevents page reloading
       socket.emit('chat message', $('#m').val());
@@ -29,6 +30,8 @@
       $('#messages').append($('<li>').text(msg));
     });
   });
+
+
 </script>
   <body>
     <ul id="messages"></ul>

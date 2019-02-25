@@ -4,6 +4,8 @@ var io = require('socket.io')(http);
 
 
 
+
+
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/public/index.html');
   });
@@ -31,3 +33,20 @@ io.on('connection', function(socket){
       io.emit('chat message', msg);
     });
   });
+
+  
+
+  io.on('connection', function(socket) {
+    socket.on('send-nickname', function(nickname) {
+        socket.nickname = nickname;
+        users.push(socket.nickname);
+        console.log(users);
+    });
+
+});
+
+io.on('typing', () => {
+    socket.broadcast.emit('typing', {
+      username: socket.username
+    });
+});

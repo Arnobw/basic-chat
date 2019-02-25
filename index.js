@@ -1,7 +1,7 @@
 var express = require('express');
 const app = require('express')();
-var http = require('http').createServer(app);
-var io = require('socket.io').listen(http);
+const server = require('http').createServer(app);
+const io = require('socket.io').listen(server);
 
 app.use(express.static('public'));
 
@@ -38,7 +38,7 @@ io.on('connection', function(socket){
 
   
 
- http.listen(process.env.port || 3000);
+ server.listen(process.env.PORT || 3000);
  console.log('hallo ik ben een serveur');
 
 //   io.on('connection', function(socket) {

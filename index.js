@@ -36,7 +36,7 @@ io.on('connection', function(socket){
 
   
 
- server.listen(process.env.port || 3000);
+ http.listen(process.env.port || 3000);
  console.log('hallo ik ben een serveur');
 
 //   io.on('connection', function(socket) {

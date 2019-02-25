@@ -11,9 +11,7 @@ app.get('/', function(req, res){
     res.sendFile(__dirname + '/public/index.html');
   });
 
-http.listen('https://super-epische-chat.herokuapp.com/', function(){
-  console.log('verbonden hoor');
-});
+
 
 
 io.on('connection', function(socket){
@@ -37,17 +35,17 @@ io.on('connection', function(socket){
 
   
 
-  io.on('connection', function(socket) {
-    socket.on('send-nickname', function(nickname) {
-        socket.nickname = nickname;
-        users.push(socket.nickname);
-        console.log(users);
-    });
+//   io.on('connection', function(socket) {
+//     socket.on('send-nickname', function(nickname) {
+//         socket.nickname = nickname;
+//         users.push(socket.nickname);
+//         console.log(users);
+//     });
 
-});
+// });
 
-io.on('typing', () => {
-    socket.broadcast.emit('typing', {
-      username: socket.username
-    });
-});
+// io.on('typing', () => {
+//     socket.broadcast.emit('typing', {
+//       username: socket.username
+//     });
+// });
